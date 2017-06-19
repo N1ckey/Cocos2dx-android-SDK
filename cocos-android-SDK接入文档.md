@@ -21,31 +21,65 @@
     </table>
 </div>
 
-
 # Android SDK 接入具体说明
-
-## 一、下载android sdk
+## 一、接入Elva SDK有两种方式，第一种是下载后导入，第二种是从jcenter引入。
+## 第一种方式：
+### 1、 下载android sdk
   点击上一个页面右上角的“Clone or download”按钮下载Android SDK，下载完成后解压文件。
-
-## 二、cocos2dx接口清单
+### 2、cocos2dx接口清单
   把interface文件夹下的ECServiceCocos2dx.h、ECServiceCocos2dx.cpp放入您的Classes文件夹。
+### 3、elvachatservice导入到项目
+  把elvachatservice文件夹拷贝到项目下导入。
+### 4、Google App Indexing导入到项目
+  导入play-services-appindexing到您的项目中(如果项目包含google service appindexing可忽略该步)。
+### 5、Android Appcompact相关包导入到项目	
+导入android_libs下Android Appcompact到您的项目中(如果项目已经包含该包，全部包含或者部分包含，请不要重复导入，只需要导入项目中未包含的)。
+如果您使用Gradle：<br />
+> 修改build.gradle,增加以下部分。根据需要，可以修改相关版本：<br />
+    compile 'com.android.support:appcompat-v7:23.4.0' <br />
+    compile 'com.android.support:design:23.4.0' <br />
+    compile 'com.android.support:recyclerview-v7:23.4.0' <br />
+    compile 'com.android.support:cardview-v7:23.4.0' <br />
 
-## 三、elvachatservice导入到项目
-  把elvachatservice文件夹拷贝到您的主目录下。
+## 第二种方式：
+注：只适用基于Android Studio或其他Gradle based projects 的用户，可以无需下载Elva，直接修改配置增加Elva的引入。
+ 
+ ### 1.在Project级别build.gradle中加入：
+>  <pre> allprojects {  <br />
+       repositories {  <br />
+       jcenter()  <br />
+       }  <br />
+       } 
 
-## 四、Google App Indexing导入到项目，增加
-  导入play-services-appindexing和Android Appcompact到您的项目中(如果项目包含google service appindexing可忽略该步)。
+### 2.在使用Elva的Module级别build.gradle中加入：
+> dependencies {  <br />
+    compile 'net.aihelp:elva:1.0.0'  <br />
+    compile 'org.fusesource.mqtt-client:mqtt-client:1.12'  <br />
+    compile 'com.android.support:appcompat-v7:23.4.0'  <br />
+    compile 'com.android.support:design:23.4.0'  <br />
+    compile 'com.android.support:recyclerview-v7:23.4.0'  <br />
+    compile 'com.android.support:cardview-v7:23.4.0'  <br />
+}  <br />
 
-## 五、Android Appcompact相关包导入到项目	
-导入android_libs下Android Appcompact到您的项目中(如果项目已经全部包含或者部分包含，请不要重复导入，只需要导入项目中未包含的)。
-如果您使用Gradle：<br/>
->  修改build.gradle,增加以下部分。根据需要，可以修改相关版本：<br/>
-    compile 'com.android.support:appcompat-v7:23.4.0'<br/>
-    compile 'com.android.support:design:23.4.0'<br/>
-    compile 'com.android.support:recyclerview-v7:23.4.0'<br/>
-    compile 'com.android.support:cardview-v7:23.4.0'<br/>
-
-## 六、接入工程配置
+ > * 参数说明：  <br />
+dependencies {  <br />
+  //Elva主包,必需  <br />
+    compile 'net.aihelp:elva:1.0.0'  <br />
+  //Elva通信包,必需  <br />
+    compile 'org.fusesource.mqtt-client:mqtt-client:1.12'  <br />
+  //使用Google AppIndexing 时需要加上  <br />
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'  <br />
+  //以下为使用运营模块 时需要加上  <br />
+    compile 'com.android.support:appcompat-v7:23.4.0'  <br />
+    compile 'com.android.support:design:23.4.0'  <br />
+    compile 'com.android.support:recyclerview-v7:23.4.0'  <br />
+    compile 'com.android.support:cardview-v7:23.4.0'  <br />
+    
+### 3.cocos2dx接口清单
+  把interface文件夹下的ECServiceCocos2dx.h、ECServiceCocos2dx.cpp放入您的Classes文件夹。
+ 
+ 
+## 二、接入工程配置
   在AndroidManifest.xml，增加需要的配置：     
 
 #### 1、增加需要的权限
@@ -85,11 +119,11 @@
        android:name="com.google.android.gms.version"
        android:value="@integer/google_play_services_version" />
 
-## 七、接口调用说明
+## 三、接口调用说明
 #### 1、sdk初始化
-   创建一个在JNI环境和Activity中传递的应用：（必须在游戏开始阶段调用）<br />
+   创建一个在JNI环境和Activity中传递的应用：（必须在游戏开始阶段调用）<br />
 a. 如果是在主Activity的onCreate中调用初始化接口init，则：<br />
-    ElvaChatServiceHelper.init(Activity activity,String appKey,String domain,String appId); <br />
+    ElvaChatServiceHelper.init(Activity activity,String appKey,String domain,String appId); <br />
 > * 其中：<br />
 activity:当前运行的action，传this即可。<br />
 App Key:app密钥，从Web管理系统获取。<br />
@@ -113,7 +147,7 @@ ECServiceCocos2dx:: showElva (string playerName , string playerUid, int serverId
               config:可选，自定义ValueMap信息。可以在此处设置特定的Tag信息。<br />
 ![showElva](https://github.com/CS30-NET/Pictures/blob/master/showElva-CN-Android.png "showElva")<br />
 
-> * 参数示例:        
+> * 参数示例:        
     ECServiceCocos2dx:: showElva (“elvaTestName”,“12349303258”,1, “es234-3dfs-d42f-342sfe3s3”,”1”,
      { 
        hs-custom-metadata＝｛
@@ -124,7 +158,7 @@ ECServiceCocos2dx:: showElva (string playerName , string playerUid, int serverId
     );
 
 2) 展示单条FAQ，调用`showSingleFAQ`方法<br />
-    ECServiceCocos2dx:: showSingleFAQ (string faqId,cocos2d::ValueMap& config);<br />
+    ECServiceCocos2dx:: showSingleFAQ (string faqId,cocos2d::ValueMap& config);<br />
 > * 参数说明：<br />
 faqId:FAQ的PublishID,可以在[Elva AI 后台](https://aihelp.net/elva)中，从FAQs菜单下找到指定FAQ，查看PublishID。<br />
 config:可选，自定义ValueMap信息。参照 1)智能客服主界面启动。<br />
@@ -186,20 +220,42 @@ ECServiceCocos2dx:: showElvaOP (string playerName,string playerUid,int serverId,
               playerParseId:空。 <br />
               showConversationFlag(0或1):是否开启人工入口。此处为1时，将在机器人的聊天界面右上角，提供人工聊天的入口。如下图。<br />
               config:自定义ValueMap信息。可以在此处设置特定的Tag信息。<br />
-	      defaultTabIndex:可选，设置默认打开的Tab页index（从0开始，如需默认打开Elva，可设置为999）。<br />	
+	      defaultTabIndex:可选，设置默认打开的Tab页index（从0开始，如需默认打开Elva，可设置为999）。<br />	
 
-> * 参数示例:  <br /> 
+> * 参数示例:  <br /> 
     ECServiceCocos2dx:: showElvaOP ("elvaTestName","12349303258",1, "","1",<br /> 
      { <br /> 
        hs-custom-metadata＝｛<br /> 
-     hs-tags＝'军队，充值'<br /> 
-     // 说明：hs-tags对应的值为vector类型，此处传入自定义的Tag，需要在Web管理配置同名称的Tag才能生效。<br /> 
+     hs-tags＝'军队，充值'<br /> 
+     // 说明：hs-tags对应的值为vector类型，此处传入自定义的Tag，需要在Web管理配置同名称的Tag才能生效。<br /> 
        VersionCode＝'3'<br /> 
        ｝<br /> 
      }<br /> 
     );<br /> 
 
-12) 设置语言，调用`setSDKLanguage`方法(Elva默认使用手机语言适配，如需修改，可在初始化之后调用，并在切换App语言后再次调用。)<br />
+12）从不同入口进入不同故事线功能。<br />
+通过map.put("anotherWelcomeText","heroText");来启用不同入口进入不同故事线功能。
+> * 参数示例: 
+        <pre>
+  ArrayList<String> tags = new ArrayList();
+        tags.add("pay1");
+        tags.add("s1");
+        tags.add("elvaTestTag");
+	HashMap<String,Object> map = new HashMap();
+        map.put("hs-tags",tags);
+//调用不同故事线功能，使用指定的提示语句，调出相应的机器人欢迎语。
+//注：heroText提示语句，需要和故事线中的User Say相对应。
+map.put("anotherWelcomeText","heroText");
+HashMap config = new HashMap();
+config.put("hs-custom-metadata",map);
+//如果是在智能客服主界面中
+ELvaChatServiceSdk.showElvaChatService("elvaTestName","12349303258",1, "","1",config);
+//如果是在智能客服运营主界面中
+ELvaChatServiceSdk.showElvaOP("elvaTestName","12349303258",1, "","1",config,0);
+
+
+
+13) 设置语言，调用`setSDKLanguage`方法(Elva默认使用手机语言适配，如需修改，可在初始化之后调用，并在切换App语言后再次调用。)<br />
 ECServiceCocos2dx:: setSDKLanguage (String language);<br />
 > * 参数说明:<br />
 language:语言名称。如英语为en,简体中文为zh_CN。更多语言简称参见Elva后台，"设置"-->"语言"的Alias列。<br />

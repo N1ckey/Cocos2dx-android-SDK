@@ -232,7 +232,10 @@ Use map.put("anotherWelcomeText","heroText");to enable different entrance into t
 map.put("anotherWelcomeText","heroText");
 HashMap config = new HashMap();
 config.put("hs-custom-metadata",map);
-
+//If show Elva Chat
+ELvaChatServiceSdk.showElvaChatService("elvaTestName","12349303258",1, "","1",config);
+//If show Elva Chat Operation Module
+ELvaChatServiceSdk.showElvaOP("elvaTestName","12349303258",1, "","1",config,0);
  
 13)  Set the SDK language，call `setSDKLanguage` method(Elva use the language of the phone by default.Call this method if after init ,and after the language of App has changed if nessary.)<br />
 setSDKLanguage (String language);<br />

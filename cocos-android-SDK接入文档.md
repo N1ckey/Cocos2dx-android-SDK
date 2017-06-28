@@ -122,7 +122,7 @@ dependencies {  <br />
 ## 三、接口调用说明
 #### 1、sdk初始化
    创建一个在JNI环境和Activity中传递的应用：（必须在游戏开始阶段调用）<br />
-a. 如果是在主Activity的onCreate中调用初始化接口init，则：<br />
+在主Activity的onCreate中调用初始化接口init，则：<br />
     ElvaChatServiceHelper.init(Activity activity,String appKey,String domain,String appId); <br />
 > * 其中：<br />
 activity:当前运行的action，传this即可。<br />
@@ -131,10 +131,8 @@ domain:app域名，从Web管理系统获取。<br />
 AppId:app唯一标识，从Web管理系统获取。<br />
 注：后面这三个参数，请使用注册邮箱登录 [Elva AI 后台](https://aihelp.net/elva)。在Settings菜单Applications页面查看。初次使用，请先登录[Elva AI 官网](http://aihelp.net/index.html)自助注册。<br />
 
-b. 如果需要延迟调用，则：<br />
-在activity.java中调用：ElvaChatServiceHelper.setHostActivity(this)<br />
-在Cocos2dx中调用：ECServiceCocos2dx::init(string appKey,string domain,string appId)<br />   
-          
+
+
 #### 2、接口调用方法
 1) 智能客服主界面启动，调用`showElva`方法，启动机器人界面<br />
 ECServiceCocos2dx:: showElva (string playerName , string playerUid, int serverId, string playerParseId, string showConversationFlag,cocos2d::ValueMap& config); <br />

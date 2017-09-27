@@ -1,25 +1,16 @@
-# 重点提醒：<br />
-1.一定要在游戏启动时进行初始化init操作，不然会无法进入Elva智能客服系统。<br />
-2.<div>
-    <table border="0">
-      <tr>
-        <th>方法</th>
-        <th>showElva</th>
-        <th>showConversation</th>
-        <th>showFAQs</th>
-        <th>showFAQSection</th>
-        <th>showSingleFAQ</th>
-      </tr>
-      <tr>
-        <td>作用</td>
-        <td>启动机器人界面</td>
-        <td>调用人工客服入口</td>
-        <td>展示FAQ列表</td>
-        <td>展示Section</td>
-        <td>展示单条FAQ</td>
-      </tr>
-    </table>
-</div>
+# 重点提醒：
+1. 一定要在游戏启动时进行初始化init操作，不然会无法进入Elva智能客服系统。
+2. 接口说明
+
+| 接口名 | 接口作用 |
+|:------------- |:---------------|
+| **init**      | 初始化 | 
+| **showElva**      | 启动机器人客服界面| 
+| **showFAQs** | 展示全部FAQ菜单|
+| **showFAQSection**| 展示FAQ分类|
+| **showSingleFAQ** | 展示单条FAQ|
+|**showConversation**|进入人工客服界面|
+| **showElvaOP** | 启动运营界面|
 
 # Android SDK 接入具体说明
 ## 一、接入Elva SDK有两种方式，第一种是下载后导入，第二种是从jcenter引入。
@@ -53,7 +44,7 @@
 
 ### 2.在使用Elva的Module级别build.gradle中加入：
 > dependencies {  <br />
-    compile 'net.aihelp:elva:1.0.0'  <br />
+    compile 'net.aihelp:elva:1.3.5.2'  <br />
     compile 'org.fusesource.mqtt-client:mqtt-client:1.12'  <br />
     compile 'com.android.support:appcompat-v7:23.4.0'  <br />
     compile 'com.android.support:design:23.4.0'  <br />
@@ -64,7 +55,7 @@
  > * 参数说明：  <br />
 dependencies {  <br />
   //Elva主包,必需  <br />
-    compile 'net.aihelp:elva:1.0.0'  <br />
+    compile 'net.aihelp:elva:1.3.5.2'  <br />
   //Elva通信包,必需  <br />
     compile 'org.fusesource.mqtt-client:mqtt-client:1.12'  <br />
   //使用Google AppIndexing 时需要加上  <br />

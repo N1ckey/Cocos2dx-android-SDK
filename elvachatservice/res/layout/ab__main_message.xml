@@ -185,13 +185,10 @@
             android:id="@+id/ab__input_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="false"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:layout_toLeftOf="@+id/ab__chat_word_voice"
-            android:layout_toRightOf="@id/ab__open_albumParent"
-            android:layout_toStartOf="@id/ab__chat_word_voice"
+            android:layout_marginLeft="8dp"
             android:background="@color/transparent"
             android:ems="10"
             android:focusable="true"
@@ -201,7 +198,9 @@
             android:text=""
             android:textColor="#ff000000"
             android:textSize="14sp"
-            line:lineColorEt="@color/start_button_color"/>
+            line:lineColorEt="@color/start_button_color"
+            android:layout_toRightOf="@+id/ab__open_albumParent"
+            android:layout_toEndOf="@+id/ab__open_albumParent" />
 
         <ImageButton
             android:id="@+id/ab__chat_word_voice"

@@ -350,7 +350,7 @@ ElvaChatServiceHelper.init(
 **最佳实践：**
 > 1. 通常你可以用在其他接口传入用户Id，无需调用该接口，但是若要使用[自助服务](#selfservice)，则必须调用。
 
-#### <h4 id="UserName">8. 设置用户名称信息，调用`setUserName`方法(建议游戏刚进入，调用Init之后就默认调用</h4>
+#### <h4 id="UserName">8. 设置用户名称信息，调用`setUserName`方法</h4>
 
 	ECServiceCocos2dx::setUserName (string playerName);
 
@@ -364,7 +364,7 @@ ElvaChatServiceHelper.init(
 
 **最佳实践：**
 > 1. 传入你的App的用户名称，这样在后台客户服务页面会展示用户的应用内名称，便于客服在服务用户时个性化称呼对方。
-> 2. 通常你可以用在其他接口传入服务器Id，无需调用该接口，但是若要使用[自助服务](#selfservice)，则必须调用。
+> 2. 通常你无需调用该接口，可以用其他接口传入用户名称，但是若要使用[自助服务](#selfservice)，则必须调用。
 
 #### <h4 id="ServerId">9. 设置用户唯一ID信息，调用`setServerId`方法
 </h4>
@@ -380,7 +380,7 @@ ElvaChatServiceHelper.init(
 - setUserId:服务器ID
 
 **最佳实践：**
-> 1. 通常你可以用在其他接口传入服务器Id，无需调用该接口，但是若要使用[自助服务](#selfservice)，则必须调用。
+> 1. 通常你无需调用该接口，可以用其他接口传入服务器ID，但是若要使用[自助服务](#selfservice)，则必须调用。
 
 
 #### <h4 id="showConversation">10. 直接进入人工客服聊天，调用`showConversation`方法(要求设置[UserName](#UserName))</h4>
@@ -410,7 +410,7 @@ ElvaChatServiceHelper.init(
 
 **参数说明：**
 
-- playerUid:用户在游戏里的唯一标示id
+- playerUid:用户在游戏里的唯一标识
 - serverId:用户所在的服务器编号
 - config:可选参数，自定义ValueMap信息。可以在此处设置特定的Tag信息。说明：hs-tags对应的值为vector类型，此处传入自定义的Tag，需要在Web管理配置同名称的Tag才能生效。
 

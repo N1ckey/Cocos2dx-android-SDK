@@ -103,10 +103,10 @@ ECServiceCocos2dx::init(
 ```
 // 一定要在应用启动时进行初始化init操作，不然会无法进入AIHelp智能客服系统。
 ElvaChatServiceHelper.init(
-	cocos2dxActivity,
-	"YOUR_API_KEY",
-	"YOUR_DOMAIN_NAME",
-	"YOUR_APP_ID");
+			cocos2dxActivity,
+			"YOUR_API_KEY",
+			"YOUR_DOMAIN_NAME",
+			"YOUR_APP_ID");
 ```
 
 ---

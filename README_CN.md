@@ -319,7 +319,7 @@ ElvaChatServiceHelper.init(
 > 1. 在您应用的特定功能入口触发这个接口的调用，可以方便用户了解具体功能相关的FAQ。
 
 
-#### <h4 id="setName">6. 设置游戏名称信息，调用`setName`方法(建议游戏刚进入，调用Init之后就默认调用)</h4>
+#### <h4 id="setName">6. 设置游戏名称信息，调用`setName`方法(建议游戏刚进入，调用init之后就默认调用)</h4>
 
 	ECServiceCocos2dx::setName(string game_name);
 
@@ -364,7 +364,7 @@ ElvaChatServiceHelper.init(
 
 **最佳实践：**
 > 1. 传入你的App的用户名称，这样在后台客户服务页面会展示用户的应用内名称，便于客服在服务用户时个性化称呼对方。
-> 2. 通常你可以用在其他接口传入服务器Id，无需调用该接口，但是若要使用[自助服务](#自助服务)，则必须调用。
+> 2. 通常你可以用在其他接口传入服务器Id，无需调用该接口，但是若要使用[自助服务](#selfservice)，则必须调用。
 
 #### <h4 id="ServerId">9. 设置用户唯一ID信息，调用`setServerId`方法
 </h4>
@@ -380,7 +380,7 @@ ElvaChatServiceHelper.init(
 - setUserId:服务器ID
 
 **最佳实践：**
-> 1. 通常你可以用在其他接口传入服务器Id，无需调用该接口，但是若要使用[自助服务](#自助服务)，则必须调用。
+> 1. 通常你可以用在其他接口传入服务器Id，无需调用该接口，但是若要使用[自助服务](#selfservice)，则必须调用。
 
 
 #### <h4 id="showConversation">10. 直接进入人工客服聊天，调用`showConversation`方法(要求设置[UserName](#UserName))</h4>

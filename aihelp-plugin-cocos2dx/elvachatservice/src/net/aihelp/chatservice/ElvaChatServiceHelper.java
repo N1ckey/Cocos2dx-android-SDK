@@ -1,4 +1,4 @@
-package net.cs30.elva.chatservice;
+package net.aihelp.chatservice;
 
 import android.app.Activity;
 
@@ -14,7 +14,7 @@ public class ElvaChatServiceHelper {
     }
     /*初始化部分，提供给.cpp调用,无Activity(当前运行的action)对象时调用
         参数说明如下:
-            appSecret:注册后由我方提供
+            appSecret:注册后我方提供
             domain:使用我方域名im30.cs30.net
             appId:注册后由我方提供*/
     public static void init(String appSecret,String domain,String appId) {

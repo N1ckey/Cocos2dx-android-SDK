@@ -28,10 +28,10 @@ public:
     static void showFAQs(cocos2d::ValueMap& config);
     static void setName(string game_name);
     static void registerDeviceToken(string deviceToken);
-    static void setUserId(string playerUid);//自助服务，在showFAQ之前调用
-    static void setServerId(int serverId);//自助服务，在showFAQ之前调用
-    static void setUserName(string playerName);//在需要的接口之前调用，建议游戏刚进入就默认调用
-    static void showConversation(string playerUid,int serverId);//请优先实现setUserName接口
+    static void setUserId(string playerUid);//use self-service, should call before showFAQ
+    static void setServerId(int serverId);//use self-service, should call before showFAQ
+    static void setUserName(string playerName);//call before service, after init
+    static void showConversation(string playerUid,int serverId);
     static void showConversation(string playerUid,int serverId,cocos2d::ValueMap& config);
     static bool setSDKLanguage(const char* locale);
     static void useDevice();

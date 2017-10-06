@@ -441,7 +441,11 @@ ElvaChatServiceHelper.init(
 
 #### 12. 设置另一个欢迎语。
 
-如果你设置了进入AI客服的不同入口，希望用户从不同的入口进入AI客服时显示不同的欢迎语，进入不同故事线，可以通过设置config参数来实现： map.put("anotherWelcomeText","usersay");	
+如果你设置了进入AI客服的不同入口，希望用户从不同的入口进入AI客服时显示不同的欢迎语，进入不同故事线，可以通过设置config参数来实现： 
+
+	map.put("anotherWelcomeText","usersay");
+
+	
 **代码示例：**
 
 	ArrayList<String> tags = new ArrayList();
@@ -451,7 +455,8 @@ ElvaChatServiceHelper.init(
 	map.put("hs-tags",tags);
 	
 	//调用不同故事线功能，使用指定的提示语句，调出相应的机器人欢迎语
-	//注：usersay，需要和故事线中配置的User Say内容一样
+	//注：anotherWelcomeText是key，不能改变。
+	//需要改变的是usersay，保持和故事线中配置的User Say内容一样
 	map.put("anotherWelcomeText","usersay");
 	HashMap<String,Object> config = new HashMap();
 	config.put("hs-custom-metadata",map);

@@ -76,12 +76,15 @@ aihelp-plugin-cocos2dx文件包含：
 在你的游戏初始化时调用 ECServiceCocos2dx::init(...)，传入必要的参数。
 ```
 
+```
+ECServiceCocos2dx::init(
+				Activity activity,
+				String appKey,
+				String domain,
+				String appId);
+```
 	
-	ECServiceCocos2dx::init(
-						Activity activity,
-						String appKey,
-						String domain,
-						String appId);
+
 
 * 参数说明：
 
@@ -92,17 +95,18 @@ aihelp-plugin-cocos2dx文件包含：
 | domain     | 您的AIHelp域名，从Web管理系统获取,例如foo.AIHELP.NET|
 | appId     | app唯一标识，从Web管理系统获取| 
 
-注：后面这三个参数，请使用注册邮箱登录 [Elva AI 后台](https://aihelp.net/elva)。在Settings菜单Applications页面查看。初次使用，需登录[Elva AI 官网](http://aihelp.net/index.html)自助注册。
+注：请使用注册邮箱登录 [AIHelp 后台](https://aihelp.net/elva)。在Settings菜单Applications页面查看。初次使用，需登录[AIHelp 官网](http://aihelp.net/index.html)自助注册。
 
 
 **初始化代码示例：**
 
-	// 一定要在应用启动时进行初始化init操作，不然会无法进入AIHelp智能客服系统。
-	ElvaChatServiceHelper.init(
-						cocos2dxActivity,
+```
+// 一定要在应用启动时进行初始化init操作，不然会无法进入AIHelp智能客服系统。
+ElvaChatServiceHelper.init(cocos2dxActivity,
 						"YOUR_API_KEY",
 						"YOUR_DOMAIN_NAME",
 						"YOUR_APP_ID");
+```
 
 ---
 

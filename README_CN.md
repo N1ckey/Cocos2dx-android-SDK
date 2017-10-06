@@ -133,22 +133,24 @@ ElvaChatServiceHelper.init(
 
 #### 2. <span id="showElva"></span>智能客服主界面启动，调用`showElva`接口，启动机器人客服聊天界面
 
+
 	ECServiceCocos2dx::showElva(
-						string playerName,
-						string playerUid,
-						int serverId,
-						string playerParseId,
-						string playershowConversationFlag);
+			string playerName,
+			string playerUid,
+			int serverId,
+			string playerParseId,
+			string playershowConversationFlag);
+			
 
 或
 
 	ECServiceCocos2dx::showElva(
-						string playerName,
-						string playerUid,
-						int serverId,
-						string playerParseId,
-						string playershowConversationFlag,
-						cocos2d::ValueMap& config);
+			string playerName,
+			string playerUid,
+			int serverId,
+			string playerParseId,
+			string playershowConversationFlag,
+			cocos2d::ValueMap& config);
 
 **代码示例：**
 
@@ -156,17 +158,17 @@ ElvaChatServiceHelper.init(
 	void GameSettingsScene::menuHelpCallback(CCObject* pSender)
 	{						
 		ECServiceCocos2dx::showElva (
-						"USER_NAME",
-						"USER_ID",
-						123, 
-						"",
-						"1",
-						{ 
-							hs-custom-metadata＝｛
-							hs-tags＝'军队，充值',
-							VersionCode＝'3'
-							｝
-						});
+				"USER_NAME",
+				"USER_ID",
+				123, 
+				"",
+				"1",
+				{ 
+					hs-custom-metadata＝｛
+					hs-tags＝'军队，充值',
+					VersionCode＝'3'
+					｝
+				});
 	}
 
 **参数说明：**
@@ -189,23 +191,23 @@ ElvaChatServiceHelper.init(
 #### 3. <span id="showElvaOP"></span>智能客服运营模块主界面启动，调用`showElvaOP`方法，启动运营模块界面
 
 	ECServiceCocos2dx::showElvaOP(
-						string playerName,
-						string playerUid,
-						int serverId,
-						string playerParseId,
-						string showConversationFlag,
-						cocos2d::ValueMap& config);
+			string playerName,
+			string playerUid,
+			int serverId,
+			string playerParseId,
+			string showConversationFlag,
+			cocos2d::ValueMap& config);
 
 或
 
 	ECServiceCocos2dx::showElvaOP(
-						string playerName,
-						string playerUid,
-						int serverId,
-						string playerParseId,
-						string showConversationFlag,
-						cocos2d::ValueMap& config,
-						int defaultTabIndex);
+			string playerName,
+			string playerUid,
+			int serverId,
+			string playerParseId,
+			string showConversationFlag,
+			cocos2d::ValueMap& config,
+			int defaultTabIndex);
 
 **代码示例：**
 
@@ -213,17 +215,17 @@ ElvaChatServiceHelper.init(
 	void GameSettingsScene::menuOperationCallback(CCObject* pSender)
 	{						
 		ECServiceCocos2dx::showElvaOP (
-						"USER_NAME",
-						"USER_ID",
-						123, 
-						"",
-						"1",
-						{ 
-							hs-custom-metadata＝｛
-							hs-tags＝'军队，充值',
-							VersionCode＝'3'
-							｝
-						});
+				"USER_NAME",
+				"USER_ID",
+				123, 
+				"",
+				"1",
+				{ 
+					hs-custom-metadata＝｛
+					hs-tags＝'军队，充值',
+					VersionCode＝'3'
+					｝
+				});
 	}
 
 **参数说明：**
@@ -257,12 +259,12 @@ ElvaChatServiceHelper.init(
 	void GameSettingsScene::menuFAQCallback(CCObject* pSender)
 	{						
 		ECServiceCocos2dx::showFAQs (
-						{ 
-							hs-custom-metadata＝｛
-							hs-tags＝'军队，充值',
-							VersionCode＝'3'
-							｝
-						});
+			{ 
+				hs-custom-metadata＝｛
+				hs-tags＝'军队，充值',
+				VersionCode＝'3'
+				｝
+			});
 	}
 
 **参数说明：**
@@ -281,8 +283,8 @@ ElvaChatServiceHelper.init(
 或
 
 	ECServiceCocos2dx::showSingleFAQ(
-						string faqId,
-						cocos2d::ValueMap& config);
+			string faqId,
+			cocos2d::ValueMap& config);
 
 **代码示例：**
 
@@ -290,13 +292,13 @@ ElvaChatServiceHelper.init(
 	void GameSettingsScene::menuFAQCallback(CCObject* pSender)
 	{						
 		ECServiceCocos2dx::showSingleFAQ (
-						"20",
-						{ 
-							hs-custom-metadata＝｛
-							hs-tags＝'军队，充值',
-							VersionCode＝'3'
-							｝
-						});
+				"20",
+				{ 
+					hs-custom-metadata＝｛
+					hs-tags＝'军队，充值',
+					VersionCode＝'3'
+					｝
+				});
 	}
 
 **参数说明：**
@@ -379,27 +381,27 @@ ElvaChatServiceHelper.init(
 #### 9. <span id="showConversation"></span>直接进入人工客服聊天，调用`showConversation`方法(要求设置[UserName](#UserName))
 
 	ECServiceCocos2dx::showConversation(
-						string playerUid,
-						int serverId);
+				string playerUid,
+				int serverId);
 或
 
 	ECServiceCocos2dx::showConversation(
-						string playerUid,
-						int serverId,
-						cocos2d::ValueMap& config);
+				string playerUid,
+				int serverId,
+				cocos2d::ValueMap& config);
 	
 **代码示例：**
 
 	ECServiceCocos2dx::setUserName ("PLAYER_NAME");
 	ECServiceCocos2dx::showConversation(
-						"PLAYER_ID",
-						123,
-						{ 
-							hs-custom-metadata＝｛
-							hs-tags＝'军队，充值',
-							VersionCode＝'3'
-							｝
-						});
+				"PLAYER_ID",
+				123,
+				{ 
+					hs-custom-metadata＝｛
+					hs-tags＝'军队，充值',
+					VersionCode＝'3'
+					｝
+				});
 
 **参数说明：**
 
@@ -450,22 +452,22 @@ ElvaChatServiceHelper.init(
 	
 	//如果是在智能客服主界面中	
 	ELvaChatServiceSdk.showElvaChatService(
-					"elvaTestName",
-					"12349303258",
-					1, 
-					"",
-					"1",
-					config);
+				"elvaTestName",
+				"12349303258",
+				1, 
+				"",
+				"1",
+				config);
 或
 
 	//如果是在智能客服运营主界面中
 	ELvaChatServiceSdk.showElvaOP(
-					"elvaTestName",
-					"12349303258",
-					1, 
-					"",
-					"1",
-					config);
+				"elvaTestName",
+				"12349303258",
+				1, 
+				"",
+				"1",
+				config);
 
 
 **最佳实践：**

@@ -69,7 +69,7 @@ aihelp-plugin-cocos2dx文件包含：
        android:name="com.google.android.gms.version"
        android:value="@integer/google_play_services_version" />
 
-### 3. 在你的工程中初始化AIHelp SDK
+### 4. 在你的工程中初始化AIHelp SDK
 
 ```
 注意：
@@ -111,7 +111,7 @@ ElvaChatServiceHelper.init(
 
 ---
 
-### 4. 使用AIHelp 接口
+### 5. 使用AIHelp 接口
 
 
 #### 1. 接口说明
@@ -439,7 +439,7 @@ ElvaChatServiceHelper.init(
 > 2. 如果你的应用允许用户更改语言，那么每次更改语言之后，也需要调用此接口重新设置SDK的语言。
 
 
-#### 11. 设置另一个欢迎语。
+#### 12. 设置另一个欢迎语。
 
 如果你设置了进入AI客服的不同入口，希望用户从不同的入口进入AI客服时显示不同的欢迎语，进入不同故事线，可以通过设置config参数来实现： map.put("anotherWelcomeText","usersay");	
 **代码示例：**

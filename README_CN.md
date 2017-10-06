@@ -131,7 +131,7 @@ ElvaChatServiceHelper.init(
 
 **注：您并不需要调用以上所有接口，尤其当您的游戏/应用只设置一个客服入口时, 有的接口所展示的界面包含了其他接口，详情见下：**
 
-#### 2. <h2 id="showElva"></h2>智能客服主界面启动，调用`showElva`接口，启动机器人客服聊天界面
+#### <h4 id="showElva">2. 智能客服主界面启动，调用`showElva`接口，启动机器人客服聊天界面</h4>
 
 
 	ECServiceCocos2dx::showElva(
@@ -188,7 +188,7 @@ ElvaChatServiceHelper.init(
 在AIHelp 配置个性化的机器人欢迎语，以及更多机器人对话故事线，引导用户反馈并得到回答。
 > 2. 打开人工客服入口，用户可以在机器人客服界面右上角进入人工客服进行聊天, 你也可以设置条件只让一部分用户看到这个入口
 
-#### 3. <h2 id="showElvaOP"></h2>智能客服运营模块主界面启动，调用`showElvaOP`方法，启动运营模块界面
+#### <h4 id="showElvaOP">3. 智能客服运营模块主界面启动，调用`showElvaOP`方法，启动运营模块界面</h4>
 
 	ECServiceCocos2dx::showElvaOP(
 				string playerName,
@@ -245,7 +245,7 @@ ElvaChatServiceHelper.init(
 在AIHelp 后台配置运营分页（tab)并且发布跟应用相关的运营公告内容。就通过AIHelp展示这些内容给用户。运营界面的最后一个分页总是机器人客服聊天界面。
 > 2. 通过参数打开人工客服入口，用户可以在机器人客服分页的右上角进入人工客服进行聊天, 你也可以设置条件只让一部分用户看到这个入口
 
-#### 4. <h2 id="showFAQs"></h2>展示FAQ列表, 调用`showFAQs `方法
+#### <h4 id="showFAQs">4. 展示FAQ列表, 调用`showFAQs `方法</h4>
 
 	ECServiceCocos2dx::showFAQs();
 
@@ -276,7 +276,8 @@ ElvaChatServiceHelper.init(
 **最佳实践：**
 > 1. 在您应用的FAQ主入口触发这个接口的调用。在AIHelp 后台页面配置并分类FAQ，如果您的FAQ较多，可以增加一个父级分类。
 
-#### 5. <h2 id="showSingleFAQ"></h2>展示单条FAQ，调用`showSingleFAQ`方法
+#### <h4 id="showSingleFAQ">5. 展示单条FAQ，调用`showSingleFAQ`方法
+</h4>
 
 	ECServiceCocos2dx::showSingleFAQ(string faqId);
 
@@ -308,14 +309,17 @@ ElvaChatServiceHelper.init(
 	
 ![showSingleFAQ](https://github.com/CS30-NET/Pictures/blob/master/showSingleFAQ-CN-Android.png "showSingleFAQ")
 
-<h2 id="自助服务"></h2>**自助服务：**如果在web管理后台配置了FAQ的自助服务链接，并且SDK设置了[UserId](#UserId), [UserName](#UserName), [ServerId](#ServerId)，将在显示FAQ的同时，右上角提供功能菜单，可以对相关的自助服务进行调用。
+<h4 id="selfservice"></h4>
+
+自助服务：
+如果在web管理后台配置了FAQ的自助服务链接，并且SDK设置了[UserId](#UserId), [UserName](#UserName), [ServerId](#ServerId)，将在显示FAQ的同时，右上角提供功能菜单，可以对相关的自助服务进行调用。
 
 
 **最佳实践：**
 > 1. 在您应用的特定功能入口触发这个接口的调用，可以方便用户了解具体功能相关的FAQ。
 
 
-#### 6. <h2 id="setName"></h2>设置游戏名称信息，调用`setName`方法(建议游戏刚进入，调用Init之后就默认调用)
+#### <h4 id="setName">6. 设置游戏名称信息，调用`setName`方法(建议游戏刚进入，调用Init之后就默认调用)</h4>
 
 	ECServiceCocos2dx::setName(string game_name);
 
@@ -330,7 +334,7 @@ ElvaChatServiceHelper.init(
 **最佳实践：**
 > 1. 在初始化后调用该接口设置游戏名称，将显示在AIHelp相关界面标题栏。
 
-#### 6.<h2 id="UserId"></h2>设置用户唯一ID信息，调用`setUserId`方法
+#### <h4 id="UserId">7. 设置用户唯一ID信息，调用`setUserId`方法</h4>
 
 
 	ECServiceCocos2dx::setUserId(string playerUid);
@@ -344,9 +348,9 @@ ElvaChatServiceHelper.init(
 - setUserId:用户唯一ID
 
 **最佳实践：**
-> 1. 通常你可以用在其他接口传入用户Id，无需调用该接口，但是若要使用[自助服务](#自助服务)，则必须调用。
+> 1. 通常你可以用在其他接口传入用户Id，无需调用该接口，但是若要使用[自助服务](#selfservice)，则必须调用。
 
-#### 7. <h2 id="UserName"></h2>设置用户名称信息，调用`setUserName`方法(建议游戏刚进入，调用Init之后就默认调用
+#### <h4 id="UserName">8. 设置用户名称信息，调用`setUserName`方法(建议游戏刚进入，调用Init之后就默认调用</h4>
 
 	ECServiceCocos2dx::setUserName (string playerName);
 
@@ -362,7 +366,8 @@ ElvaChatServiceHelper.init(
 > 1. 传入你的App的用户名称，这样在后台客户服务页面会展示用户的应用内名称，便于客服在服务用户时个性化称呼对方。
 > 2. 通常你可以用在其他接口传入服务器Id，无需调用该接口，但是若要使用[自助服务](#自助服务)，则必须调用。
 
-#### 8. <h2 id="ServerId"></h2>设置用户唯一ID信息，调用`setServerId`方法
+#### <h4 id="ServerId">9. 设置用户唯一ID信息，调用`setServerId`方法
+</h4>
 
 	ECServiceCocos2dx::setServerId(int serverId);
 
@@ -378,7 +383,7 @@ ElvaChatServiceHelper.init(
 > 1. 通常你可以用在其他接口传入服务器Id，无需调用该接口，但是若要使用[自助服务](#自助服务)，则必须调用。
 
 
-#### 9. <h2 id="showConversation"></h2>直接进入人工客服聊天，调用`showConversation`方法(要求设置[UserName](#UserName))
+#### <h4 id="showConversation">10. 直接进入人工客服聊天，调用`showConversation`方法(要求设置[UserName](#UserName))</h4>
 
 	ECServiceCocos2dx::showConversation(
 					string playerUid,
@@ -415,7 +420,8 @@ ElvaChatServiceHelper.init(
 ![showConversation](https://github.com/CS30-NET/Pictures/blob/master/showConversation-CN-Android.png "showConversation")
 
 
-#### 10. <h2 id="setSDKLanguage"></h2>设置语言，调用`setSDKLanguage`方法
+#### <h4 id="setSDKLanguage">11. 设置语言，调用`setSDKLanguage`方法
+</h4>
 
 	ECServiceCocos2dx::setSDKLanguage(string language);
 	

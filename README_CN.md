@@ -345,7 +345,7 @@ ElvaChatServiceHelper.init(
 
 **参数说明：**
 
-- setUserId:用户唯一ID
+- playerUid:用户唯一ID
 
 **最佳实践：**
 > 1. 通常你可以用在其他接口传入用户Id，无需调用该接口，但是若要使用[自助服务](#selfservice)，则必须调用。
@@ -366,7 +366,7 @@ ElvaChatServiceHelper.init(
 > 1. 传入你的App的用户名称，这样在后台客户服务页面会展示用户的应用内名称，便于客服在服务用户时个性化称呼对方。
 > 2. 通常你无需调用该接口，可以用其他接口传入用户名称，但是若要使用[自助服务](#selfservice)，则必须调用。
 
-#### <h4 id="ServerId">9. 设置用户唯一ID信息，调用`setServerId`方法
+#### <h4 id="ServerId">9. 设置服务器唯一ID信息，调用`setServerId`方法
 </h4>
 
 	ECServiceCocos2dx::setServerId(int serverId);
@@ -377,7 +377,7 @@ ElvaChatServiceHelper.init(
 
 **参数说明：**
 
-- setUserId:服务器ID
+- serverId:服务器ID
 
 **最佳实践：**
 > 1. 通常你无需调用该接口，可以用其他接口传入服务器ID，但是若要使用[自助服务](#selfservice)，则必须调用。
@@ -462,7 +462,7 @@ ElvaChatServiceHelper.init(
 	config.put("hs-custom-metadata",map);
 	
 	//如果是在智能客服主界面中	
-	ELvaChatServiceSdk.showElvaChatService(
+	ECServiceCocos2dx::showElva(
 				"elvaTestName",
 				"12349303258",
 				1, 
@@ -472,7 +472,7 @@ ElvaChatServiceHelper.init(
 或
 
 	//如果是在智能客服运营主界面中
-	ELvaChatServiceSdk.showElvaOP(
+	ECServiceCocos2dx::showElvaOP(
 				"elvaTestName",
 				"12349303258",
 				1, 

@@ -17,7 +17,7 @@ class ECServiceCocos2dx
 public:
 //#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 public:
-    static void init(string appSecret,string domain,string appId);
+    static void init(string appKey,string domain,string appId);
 	static void showElva(string playerName,string playerUid,int serverId,string playerParseId,string showConversationFlag);
     static void showElva(string playerName,string playerUid,int serverId,string playerParseId,string showConversationFlag,cocos2d::ValueMap& config);
     static void showSingleFAQ(string faqId);

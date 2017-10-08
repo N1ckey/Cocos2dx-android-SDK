@@ -84,7 +84,6 @@ You must use ECServiceCocos2dx::init(...) in your App's Initialization Code, oth
 
 ```
 ECServiceCocos2dx::init(
-			Activity activity,
 			String appKey,
 			String domain,
 			String appId);
@@ -96,7 +95,6 @@ ECServiceCocos2dx::init(
 
 | Parameters | Description |
 |:------------- |:---------------|
-| activity    | Cocos2dx Main Activity|
 | appKey    | Your unique developer API Key|
 | domain     | Your AIHelp domain name. For example: foo.AIHELP.NET|
 | appId     | A unique ID assigned to your app.| 
@@ -110,8 +108,7 @@ If your company doesn't have an account, you need to register an account in [AIH
 ```
 // Must be called during application/game initialization, otherwise you can't use AIHelp properly
 
-ElvaChatServiceHelper.init(
-			cocos2dxActivity,
+ECServiceCocos2dx::init(
 			"YOUR_API_KEY",
 			"YOUR_DOMAIN_NAME",
 			"YOUR_APP_ID");

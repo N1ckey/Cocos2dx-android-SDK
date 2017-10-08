@@ -275,11 +275,11 @@ void ECServiceCocos2dx::showFAQs(cocos2d::CCDictionary *config){
 
 /*初始化 在主activity的onCreate中调用
             a:当前运行的action
-            appSecret:注册后由我方提供
+            appKey:注册后由我方提供
             domain:注册后我方提供域名
             appId:注册后由我方提供
 */
-void ECServiceCocos2dx::init(string appSecret,string domain,string appId) {
+void ECServiceCocos2dx::init(string appKey,string domain,string appId) {
        cocos2d::JniMethodInfo minfo;
     if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
                                                 ,"init"
@@ -290,7 +290,7 @@ void ECServiceCocos2dx::init(string appSecret,string domain,string appId) {
     }
     else
     {
-        jstring jAppSecret = minfo.env->NewStringUTF(appSecret.c_str());
+        jstring jAppSecret = minfo.env->NewStringUTF(appKey.c_str());
         jstring jDomain = minfo.env->NewStringUTF(domain.c_str());
         jstring jAppId = minfo.env->NewStringUTF(appId.c_str());
         minfo.env->CallStaticVoidMethod(minfo.classID

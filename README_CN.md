@@ -78,7 +78,6 @@ aihelp-plugin-cocos2dx文件包含：
 
 ```
 ECServiceCocos2dx::init(
-			Activity activity,
 			String appKey,
 			String domain,
 			String appId);
@@ -90,7 +89,6 @@ ECServiceCocos2dx::init(
 
 | 参数 | 说明 |
 |:------------- |:---------------|
-| activity    | Cocos2dx的主activity|
 | appKey    | app唯一密钥，从AIHelp Web管理系统获取|
 | domain     | 您的AIHelp域名，从Web管理系统获取,例如foo.AIHELP.NET|
 | appId     | app唯一标识，从Web管理系统获取| 
@@ -102,8 +100,7 @@ ECServiceCocos2dx::init(
 
 ```
 // 一定要在应用启动时进行初始化init操作，不然会无法进入AIHelp智能客服系统。
-ElvaChatServiceHelper.init(
-			cocos2dxActivity,
+ECServiceCocos2dx::init(
 			"YOUR_API_KEY",
 			"YOUR_DOMAIN_NAME",
 			"YOUR_APP_ID");

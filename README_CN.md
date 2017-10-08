@@ -136,7 +136,7 @@ ECServiceCocos2dx::init(
 				string playerUid,
 				int serverId,
 				string playerParseId,
-				string playershowConversationFlag);
+				string showConversationFlag);
 			
 
 或
@@ -146,7 +146,7 @@ ECServiceCocos2dx::init(
 				string playerUid,
 				int serverId,
 				string playerParseId,
-				string playershowConversationFlag,
+				string showConversationFlag,
 				cocos2d::ValueMap& config);
 
 **代码示例：**
@@ -173,7 +173,7 @@ ECServiceCocos2dx::init(
 - playerName:游戏中用户名称。 
 - playerUid:用户在游戏里的唯一标识。 
 - serverId:用户所在的服务器编号。 
-- playerParseId:可为空值
+- playerParseId:设置为空字符串（不可为NULL)
 - showConversationFlag(0或1):是否开启人工入口。此处为1时，将在机器人的聊天界面右上角，提供人工聊天的入口。如下图。
 - config:可选，自定义ValueMap信息。可以在此处设置特定的Tag信息。说明：hs-tags对应的值为vector类型，此处传入自定义的Tag，需要在Web管理配置同名称的Tag才能生效。
 	
@@ -230,7 +230,7 @@ ECServiceCocos2dx::init(
 - playerName:游戏中用户名称。 
 - playerUid:用户在游戏里的唯一标识。 
 - serverId:用户所在的服务器编号。 
-- playerParseId:可为空值
+- playerParseId:设置为空字符串（不可为NULL)
 - showConversationFlag(0或1):是否开启人工入口。此处为1时，将在机器人的聊天界面右上角，提供人工聊天的入口。如下图。
 - config: 自定义ValueMap信息。可以在此处设置特定的Tag信息。说明：hs-tags对应的值为vector类型，此处传入自定义的Tag，需要在Web管理配置同名称的Tag才能生效。
 - defaultTabIndex: 首次进入运营界面时候展示的tab的编号，默认为第一个tab，若需默认展示客服界面tab，设置值为999
@@ -486,3 +486,4 @@ ECServiceCocos2dx::init(
 
 
 
+showConversationFlag

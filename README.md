@@ -143,7 +143,7 @@ ECServiceCocos2dx::init(
 				string playerUid,
 				int serverId,
 				string playerParseId,
-				string playershowConversationFlag);
+				string showConversationFlag);
 			
 or
 
@@ -152,7 +152,7 @@ or
 				string playerUid,
 				int serverId,
 				string playerParseId,
-				string playershowConversationFlag,
+				string showConversationFlag,
 				cocos2d::ValueMap& config);
 
 **Coding Example：**
@@ -179,7 +179,7 @@ or
 - __playerName__: In-app User Name
 - __playerUid__: In-app Unique User ID
 - __serverId__: The Server ID
-- __playerParseId__: Can be empty string
+- __playerParseId__: Can be empty string, can NOT be NULL
 - __showConversationFlag__: Should be "0" or "1". If set "1", the VIP conversation entry will be displayed in the upper right of the AI conversation interface.
 - __config__: Optional param for custom ValueMap information. You can pass specific Tag information using vector hs-tags, see above coding example. Please note you also need to configure the same tag information in the Web console so that each conversation can be correctly tagged.
 	
@@ -226,7 +226,7 @@ or
 					"1",
 					{ 
 						hs-custom-metadata＝｛
-						hs-tags＝'vip，pay1',
+						hs-tags＝'vip,pay1',
 						VersionCode＝'3'
 						｝
 					});
@@ -237,7 +237,7 @@ or
 - __playerName__: User Name in Game/APP
 - __playerUid__: Unique User ID
 - __serverId__: The Server ID
-- __playerParseId__: Can be empty string
+- __playerParseId__: Can be empty string, can NOT be NULL
 - __showConversationFlag__: Should be "0" or "1". If set "1", the VIP conversation entry will be shown in the top right corner of the AI conversation interface.
 - __config__: Custom ValueMap information. You can pass specific Tag information using vector hs-tags, see above coding example. Please note you also need to configure the same tag information in the Web console so that each conversation can be correctly tagged.
 - __defaultTabIndex__: Optional. The index of the first tab to be shown when entering the operation interface. Default value is the left-most tab，if you would like to show the AI conversation interface(the right-most，set it to 999.
@@ -263,7 +263,7 @@ or
 		ECServiceCocos2dx::showFAQs (
 					{ 
 						hs-custom-metadata＝｛
-						hs-tags＝'vip，pay1',
+						hs-tags＝'vip,pay1',
 						VersionCode＝'3'
 						｝
 					});
@@ -298,7 +298,7 @@ or
 					"20",
 					{ 
 						hs-custom-metadata＝｛
-						hs-tags＝'vip，pay1',
+						hs-tags＝'vip,pay1',
 						VersionCode＝'3'
 						｝
 					});
@@ -405,7 +405,7 @@ or
 					123,
 					{ 
 						hs-custom-metadata＝｛
-						hs-tags＝'军队，充值',
+						hs-tags＝'vip,pay1',
 						VersionCode＝'3'
 						｝
 					});
@@ -488,3 +488,4 @@ Or
 
 
 
+showConversationFlag

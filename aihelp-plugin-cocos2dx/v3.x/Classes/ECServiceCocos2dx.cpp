@@ -88,7 +88,7 @@ jobject parseConfigDictionaryElva (JNIEnv* env, cocos2d::ValueMap& config) {
 /*
 展示聊天主界面，不带config
 */
-void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId,string playerParseId,string playershowConversationFlag){
+void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId,string playerParseId,string showConversationFlag){
     cocos2d::JniMethodInfo minfo;
     if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
                                                 ,"showElvaChatServiceFrom2dx"
@@ -103,7 +103,7 @@ void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId
         jstring userName = minfo.env->NewStringUTF(playerName.c_str());
         jstring uid = minfo.env->NewStringUTF(playerUid.c_str());
         jstring parseId = minfo.env->NewStringUTF(playerParseId.c_str());
-        jstring showConversationFlag = minfo.env->NewStringUTF(playershowConversationFlag.c_str());
+        jstring showConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
         minfo.env->CallStaticVoidMethod(minfo.classID
                                         ,minfo.methodID
                                         ,npcName
@@ -126,7 +126,7 @@ void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId
 /*
 展示聊天主界面，带config
 */
-void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId,string playerParseId,string playershowConversationFlag,cocos2d::ValueMap& config){
+void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId,string playerParseId,string showConversationFlag,cocos2d::ValueMap& config){
     cocos2d::JniMethodInfo minfo;
     if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
                                                 ,"showElvaChatServiceFrom2dx"
@@ -141,7 +141,7 @@ void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId
         jstring userName = minfo.env->NewStringUTF(playerName.c_str());
         jstring uid = minfo.env->NewStringUTF(playerUid.c_str());
         jstring parseId = minfo.env->NewStringUTF(playerParseId.c_str());
-        jstring showConversationFlag = minfo.env->NewStringUTF(playershowConversationFlag.c_str());
+        jstring showConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
         jobject hashMap = parseConfigDictionaryElva(minfo.env, config);
         minfo.env->CallStaticVoidMethod(minfo.classID
                                         ,minfo.methodID
@@ -541,7 +541,7 @@ void ECServiceCocos2dx::setEvaluateStar(int star){
     } 
 }
 
-void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int serverId,string playerParseId,string playershowConversationFlag,cocos2d::ValueMap& config){
+void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int serverId,string playerParseId,string showConversationFlag,cocos2d::ValueMap& config){
     cocos2d::JniMethodInfo minfo;
     if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
                                                 ,"showElvaChatServiceOPFrom2dx"
@@ -556,7 +556,7 @@ void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int server
         jstring userName = minfo.env->NewStringUTF(playerName.c_str());
         jstring uid = minfo.env->NewStringUTF(playerUid.c_str());
         jstring parseId = minfo.env->NewStringUTF(playerParseId.c_str());
-        jstring showConversationFlag = minfo.env->NewStringUTF(playershowConversationFlag.c_str());
+        jstring showConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
         jobject hashMap = parseConfigDictionaryElva(minfo.env, config);
         minfo.env->CallStaticVoidMethod(minfo.classID
                                         ,minfo.methodID
@@ -578,7 +578,7 @@ void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int server
     }
 }
 
-void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int serverId,string playerParseId,string playershowConversationFlag,cocos2d::ValueMap& config,int defaultTabIndex){
+void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int serverId,string playerParseId,string showConversationFlag,cocos2d::ValueMap& config,int defaultTabIndex){
     cocos2d::JniMethodInfo minfo;
     if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
                                                 ,"showElvaChatServiceOPFrom2dx"
@@ -593,7 +593,7 @@ void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int server
         jstring userName = minfo.env->NewStringUTF(playerName.c_str());
         jstring uid = minfo.env->NewStringUTF(playerUid.c_str());
         jstring parseId = minfo.env->NewStringUTF(playerParseId.c_str());
-        jstring showConversationFlag = minfo.env->NewStringUTF(playershowConversationFlag.c_str());
+        jstring showConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
         jobject hashMap = parseConfigDictionaryElva(minfo.env, config);
         minfo.env->CallStaticVoidMethod(minfo.classID
                                         ,minfo.methodID

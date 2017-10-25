@@ -616,4 +616,29 @@ void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int server
     }
 }
 
+void ECServiceCocos2dx::showVipChat(string webAppId)
+{
+    if(webAppId=="") {
+        return;
+    }
+    cocos2d::JniMethodInfo minfo;
+    if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
+                                                ,"showVipChat"
+                                                ,"(Ljava/lang/String;)V")
+       )
+    {
+        return;
+    }
+    else
+    {
+        jstring jwebAppId = minfo.env->NewStringUTF(webAppId.c_str());
+        minfo.env->CallStaticVoidMethod(minfo.classID
+                                        ,minfo.methodID
+                                        ,jwebAppId
+                                        );
+        minfo.env->DeleteLocalRef(jwebAppId);
+        minfo.env->DeleteLocalRef(minfo.classID);
+    }
+}
+
 #endif

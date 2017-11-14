@@ -119,7 +119,7 @@ public class ElvaChatServiceHelper {
     public static void setEvaluateStar(int star) {
         ELvaChatServiceSdk.setEvaluateStar(star);
     }
-    public static void showVipChat(String webAppId) {
+    public static void showVIPChat(String webAppId) {
         ELvaChatServiceSdk.showVIPChat(webAppId);
     }
 }

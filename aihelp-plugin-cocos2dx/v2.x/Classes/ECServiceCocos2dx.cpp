@@ -642,14 +642,14 @@ void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int server
     }
 }
 
-void ECServiceCocos2dx::showVipChat(string webAppId)
+void ECServiceCocos2dx::showVIPChat(string webAppId)
 {
     if(webAppId=="") {
         return;
     }
     cocos2d::JniMethodInfo minfo;
     if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
-                                                ,"showVipChat"
+                                                ,"showVIPChat"
                                                 ,"(Ljava/lang/String;)V")
        )
     {

@@ -103,7 +103,7 @@ void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId
         jstring userName = minfo.env->NewStringUTF(playerName.c_str());
         jstring uid = minfo.env->NewStringUTF(playerUid.c_str());
         jstring parseId = minfo.env->NewStringUTF(playerParseId.c_str());
-        jstring showConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
+        jstring jsShowConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
         minfo.env->CallStaticVoidMethod(minfo.classID
                                         ,minfo.methodID
                                         ,npcName
@@ -111,13 +111,13 @@ void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId
                                         ,uid
                                         ,parseId
                                         ,(jint)serverId
-                                        ,showConversationFlag
+                                        ,jsShowConversationFlag
                                         );
         minfo.env->DeleteLocalRef(npcName);
         minfo.env->DeleteLocalRef(userName);
         minfo.env->DeleteLocalRef(uid);
         minfo.env->DeleteLocalRef(parseId);
-        minfo.env->DeleteLocalRef(showConversationFlag);
+        minfo.env->DeleteLocalRef(jsShowConversationFlag);
         minfo.env->DeleteLocalRef(minfo.classID);
     }
 }
@@ -141,7 +141,7 @@ void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId
         jstring userName = minfo.env->NewStringUTF(playerName.c_str());
         jstring uid = minfo.env->NewStringUTF(playerUid.c_str());
         jstring parseId = minfo.env->NewStringUTF(playerParseId.c_str());
-        jstring showConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
+        jstring jsShowConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
         jobject hashMap = parseConfigDictionaryElva(minfo.env, config);
         minfo.env->CallStaticVoidMethod(minfo.classID
                                         ,minfo.methodID
@@ -150,14 +150,14 @@ void ECServiceCocos2dx::showElva(string playerName,string playerUid,int serverId
                                         ,uid
                                         ,parseId
                                         ,(jint)serverId
-                                        ,showConversationFlag
+                                        ,jsShowConversationFlag
                                         ,hashMap
                                         );
         minfo.env->DeleteLocalRef(npcName);
         minfo.env->DeleteLocalRef(userName);
         minfo.env->DeleteLocalRef(uid);
         minfo.env->DeleteLocalRef(parseId);
-        minfo.env->DeleteLocalRef(showConversationFlag);
+        minfo.env->DeleteLocalRef(jsShowConversationFlag);
         minfo.env->DeleteLocalRef(hashMap);
         minfo.env->DeleteLocalRef(minfo.classID);
     }
@@ -556,7 +556,7 @@ void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int server
         jstring userName = minfo.env->NewStringUTF(playerName.c_str());
         jstring uid = minfo.env->NewStringUTF(playerUid.c_str());
         jstring parseId = minfo.env->NewStringUTF(playerParseId.c_str());
-        jstring showConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
+        jstring jsShowConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
         jobject hashMap = parseConfigDictionaryElva(minfo.env, config);
         minfo.env->CallStaticVoidMethod(minfo.classID
                                         ,minfo.methodID
@@ -565,14 +565,14 @@ void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int server
                                         ,uid
                                         ,parseId
                                         ,(jint)serverId
-                                        ,showConversationFlag
+                                        ,jsShowConversationFlag
                                         ,hashMap
                                         );
         minfo.env->DeleteLocalRef(npcName);
         minfo.env->DeleteLocalRef(userName);
         minfo.env->DeleteLocalRef(uid);
         minfo.env->DeleteLocalRef(parseId);
-        minfo.env->DeleteLocalRef(showConversationFlag);
+        minfo.env->DeleteLocalRef(jsShowConversationFlag);
         minfo.env->DeleteLocalRef(hashMap);
         minfo.env->DeleteLocalRef(minfo.classID);
     }
@@ -593,7 +593,7 @@ void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int server
         jstring userName = minfo.env->NewStringUTF(playerName.c_str());
         jstring uid = minfo.env->NewStringUTF(playerUid.c_str());
         jstring parseId = minfo.env->NewStringUTF(playerParseId.c_str());
-        jstring showConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
+        jstring jsShowConversationFlag = minfo.env->NewStringUTF(showConversationFlag.c_str());
         jobject hashMap = parseConfigDictionaryElva(minfo.env, config);
         minfo.env->CallStaticVoidMethod(minfo.classID
                                         ,minfo.methodID
@@ -602,7 +602,7 @@ void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int server
                                         ,uid
                                         ,parseId
                                         ,(jint)serverId
-                                        ,showConversationFlag
+                                        ,jsShowConversationFlag
                                         ,hashMap
 										,defaultTabIndex
                                         );
@@ -610,7 +610,7 @@ void ECServiceCocos2dx::showElvaOP(string playerName,string playerUid,int server
         minfo.env->DeleteLocalRef(userName);
         minfo.env->DeleteLocalRef(uid);
         minfo.env->DeleteLocalRef(parseId);
-        minfo.env->DeleteLocalRef(showConversationFlag);
+        minfo.env->DeleteLocalRef(jsShowConversationFlag);
         minfo.env->DeleteLocalRef(hashMap);
         minfo.env->DeleteLocalRef(minfo.classID);
     }

@@ -28,6 +28,7 @@ public:
     static void showFAQs(cocos2d::ValueMap& config);
     static void setName(string game_name);
     static void registerDeviceToken(string deviceToken);
+    static void setFcmToken(string deviceToken);
     static void setUserId(string playerUid);//use self-service, should call before showFAQ
     static void setServerId(int serverId);//use self-service, should call before showFAQ
     static void setUserName(string playerName);//call before service, after init

@@ -327,6 +327,32 @@ void ECServiceCocos2dx::setName(string game_name){
     } 
 }
 
+
+void ECServiceCocos2dx::setFcmToken(string deviceToken){
+    if(deviceToken=="") {
+        return;
+    }
+    
+    cocos2d::JniMethodInfo minfo;
+    if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
+                                                ,"setFcmToken"
+                                                ,"(Ljava/lang/String;)V")
+       )
+    {
+        return;
+    }
+    else
+    {
+        jstring jdeviceToken = minfo.env->NewStringUTF(deviceToken.c_str());
+        minfo.env->CallStaticVoidMethod(minfo.classID
+                                        ,minfo.methodID
+                                        ,jdeviceToken
+                                        );
+        minfo.env->DeleteLocalRef(jdeviceToken);
+        minfo.env->DeleteLocalRef(minfo.classID);
+    }
+}
+
 void ECServiceCocos2dx::registerDeviceToken(string deviceToken){
 	if(deviceToken=="") {
         return;

@@ -71,6 +71,9 @@ public class ElvaChatServiceHelper {
         ELvaChatServiceSdk.setName(game_name);
     }
 
+    public static void setFcmToken(String deviceToken) {
+        ELvaChatServiceSdk.registerDeviceToken(deviceToken);
+    }
     public static void registerDeviceToken(String deviceToken) {
         ELvaChatServiceSdk.registerDeviceToken(deviceToken);
     }
@@ -121,5 +124,10 @@ public class ElvaChatServiceHelper {
     }
     public static void showVIPChat(String webAppId) {
         ELvaChatServiceSdk.showVIPChat(webAppId);
+    }
+    
+    public static void showStoreReview(Activity a)
+    {
+        ELvaChatServiceSdk.showStoreReview(a);
     }
 }

@@ -68,6 +68,17 @@ __elvachatservice__ depends __appcompat__, which depends __design__, __recyclerv
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             >
     </activity>
+    <activity 
+       android:name="com.ljoy.chatbot.WebViewActivity"
+       android:screenOrientation="sensor"
+       android:configChanges="orientation|screenSize|locale"
+       android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
+       <intent-filter android:label="@string/app_name">
+          <action android:name="android.intent.action.VIEW" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <category android:name="android.intent.category.BROWSABLE" />
+       </intent-filter>
+    </activity>
 **c. Add meta data (if usig appindexing)**      
 
     <meta-data

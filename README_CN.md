@@ -22,8 +22,6 @@ aihelp-plugin-cocos2dx文件包含：
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.android.support:cardview-v7:23.4.0'
-    # 若使用appindexing，增加如下：
-    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 
 如果你使用了Eclipse, 并没有用Gradle，你需要把依赖包import到你的工程中作为library，并且增加依赖关系给AIHelp SDK。具体依赖关系: elvachatservice依赖于appcompat, 后者依赖于design, recyclerview 和cardview。
  
@@ -74,12 +72,16 @@ aihelp-plugin-cocos2dx文件包含：
           <category android:name="android.intent.category.BROWSABLE" />
        </intent-filter>
     </activity>
+    
+关于横竖屏显示：上述配置中
+**android:screenOrientation="sensor"** 代表AIhelp的UI会根据手机屏幕方向自动调整横竖屏。如果您要固定AIhelp屏幕展示，请做如下修改：
 
-**c. 增加meta (若使用appindexing)**      
+横屏展示：
 
-    <meta-data
-       android:name="com.google.android.gms.version"
-       android:value="@integer/google_play_services_version" />
+	android:screenOrientation="landscape"
+竖屏展示：
+
+	android:screenOrientation="portrait"
 
 ### 4. 在你的工程中初始化AIHelp SDK
 

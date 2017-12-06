@@ -26,11 +26,9 @@ If your project has already imported some of the dependencies, just import those
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.android.support:cardview-v7:23.4.0'
-    # add this if using appindexing：
-    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 
 If you use __Eclipse__ that doesn't use Gradle, you need to import each of the dependencies into your project as a library. You also need to explicitly add dependency relationship between AIHelp SDK and the libraries:  
-__elvachatservice__ depends __appcompat__, which depends __design__, __recyclerview__ and __cardview__.
+__elvachatservice__ depends __design__, which depends __appcompact__, __recyclerview__ and __cardview__.
  
 ### 3. Configure your Android Manifest
   In the AndroidManifest.xml of your project, add below information：     
@@ -79,12 +77,16 @@ __elvachatservice__ depends __appcompat__, which depends __design__, __recyclerv
           <category android:name="android.intent.category.BROWSABLE" />
        </intent-filter>
     </activity>
-**c. Add meta data (if usig appindexing)**      
+    
+About the screen orientations: 
+**android:screenOrientation="sensor"** means AIhelp User Interface will adjust display orientation according to the mobile's screen orientation, if you intend to fixate AIhelp UI display, use below setting:
 
-    <meta-data
-       android:name="com.google.android.gms.version"
-       android:value="@integer/google_play_services_version" />
+landscape display:
 
+	android:screenOrientation="landscape"
+portrait display:
+
+	android:screenOrientation="portrait"
 ### 4. Initialize AIHelp SDK in your Project
 
 ```

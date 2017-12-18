@@ -23,7 +23,7 @@ aihelp-plugin-cocos2dx文件包含：
     compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.android.support:cardview-v7:23.4.0'
 
-如果你使用了Eclipse, 并没有用Gradle，你需要把依赖包import到你的工程中作为library，并且增加依赖关系给AIHelp SDK。具体依赖关系: elvachatservice依赖于appcompat, 后者依赖于design, recyclerview 和cardview。
+如果你使用了Eclipse, 并没有用Gradle，你需要把依赖包import到你的工程中作为library，并且增加依赖关系给AIHelp SDK。具体依赖关系: elvachatservice依赖于design, 后者依赖于appcompat, recyclerview 和cardview。
  
 ### 3. 接入工程配置
   在你的Android工程的AndroidManifest.xml，增加需要的配置：     

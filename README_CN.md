@@ -496,8 +496,3 @@ ECServiceCocos2dx::init(
 **最佳实践：**
 > 1. 引导玩家从不同入口看到不同的服务
 
-
-
-
-
-showConversationFlag

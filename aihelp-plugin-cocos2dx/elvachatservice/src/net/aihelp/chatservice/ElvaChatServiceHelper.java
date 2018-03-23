@@ -71,11 +71,11 @@ public class ElvaChatServiceHelper {
         ELvaChatServiceSdk.setName(game_name);
     }
 
-    public static void setFcmToken(String deviceToken) {
-        ELvaChatServiceSdk.registerDeviceToken(deviceToken);
-    }
-    public static void registerDeviceToken(String deviceToken) {
-        ELvaChatServiceSdk.registerDeviceToken(deviceToken);
+    // public static void setFcmToken(String deviceToken) {
+    //     ELvaChatServiceSdk.registerDeviceToken(deviceToken);
+    // }
+    public static void registerDeviceToken(String deviceToken, boolean isVip) {
+        ELvaChatServiceSdk.registerDeviceToken(deviceToken,isVip);
     }
 
     public static void setUserId(String uid) {

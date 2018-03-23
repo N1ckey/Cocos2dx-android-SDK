@@ -26,6 +26,7 @@ If your project has already imported some of the dependencies, just import those
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.android.support:cardview-v7:23.4.0'
+    compile 'com.bm.photoview:library:1.4.1'
 
 If you use __Eclipse__ that does not use Gradle, you need to import each of the dependencies into your project as a library. You also need to explicitly add dependency relationships between AIHelp SDK and the libraries:  
 __elvachatservice__ depends on __design__, which depends on __appcompact__, __recyclerview__ and __cardview__.

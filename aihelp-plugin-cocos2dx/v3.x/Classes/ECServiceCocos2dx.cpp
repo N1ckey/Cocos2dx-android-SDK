@@ -306,32 +306,32 @@ void ECServiceCocos2dx::setName(string game_name){
     } 
 }
 
-void ECServiceCocos2dx::setFcmToken(string deviceToken){
-    if(deviceToken=="") {
-        return;
-    }
-    
-    cocos2d::JniMethodInfo minfo;
-    if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
-                                                ,"setFcmToken"
-                                                ,"(Ljava/lang/String;)V")
-       )
-    {
-        return;
-    }
-    else
-    {
-        jstring jdeviceToken = minfo.env->NewStringUTF(deviceToken.c_str());
-        minfo.env->CallStaticVoidMethod(minfo.classID
-                                        ,minfo.methodID
-                                        ,jdeviceToken
-                                        );
-        minfo.env->DeleteLocalRef(jdeviceToken);
-        minfo.env->DeleteLocalRef(minfo.classID);
-    }
-}
+//void ECServiceCocos2dx::setFcmToken(string deviceToken){
+//    if(deviceToken=="") {
+//        return;
+//    }
+//
+//    cocos2d::JniMethodInfo minfo;
+//    if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
+//                                                ,"setFcmToken"
+//                                                ,"(Ljava/lang/String;)V")
+//       )
+//    {
+//        return;
+//    }
+//    else
+//    {
+//        jstring jdeviceToken = minfo.env->NewStringUTF(deviceToken.c_str());
+//        minfo.env->CallStaticVoidMethod(minfo.classID
+//                                        ,minfo.methodID
+//                                        ,jdeviceToken
+//                                        );
+//        minfo.env->DeleteLocalRef(jdeviceToken);
+//        minfo.env->DeleteLocalRef(minfo.classID);
+//    }
+//}
 
-void ECServiceCocos2dx::registerDeviceToken(string deviceToken){
+void ECServiceCocos2dx::registerDeviceToken(string deviceToken,bool isVIP){
 	if(deviceToken=="") {
         return;
     }
@@ -339,7 +339,7 @@ void ECServiceCocos2dx::registerDeviceToken(string deviceToken){
     cocos2d::JniMethodInfo minfo;
     if(!cocos2d::JniHelper::getStaticMethodInfo(minfo,"net/aihelp/chatservice/ElvaChatServiceHelper"
                                                 ,"registerDeviceToken"
-                                                ,"(Ljava/lang/String;)V")
+                                                ,"(Ljava/lang/String;Z)V")
        )
     {
         return;
@@ -347,9 +347,11 @@ void ECServiceCocos2dx::registerDeviceToken(string deviceToken){
     else
     {
         jstring jdeviceToken = minfo.env->NewStringUTF(deviceToken.c_str());
+        jboolean jisVip = isVIP ? JNI_TRUE : JNI_FALSE;
         minfo.env->CallStaticVoidMethod(minfo.classID
                                         ,minfo.methodID
                                         ,jdeviceToken
+                                        ,jisVip
                                         );
         minfo.env->DeleteLocalRef(jdeviceToken);
         minfo.env->DeleteLocalRef(minfo.classID);
@@ -517,22 +519,20 @@ void ECServiceCocos2dx::showFAQSection(string sectionPublishId,cocos2d::ValueMap
     }
 }
 
-bool ECServiceCocos2dx::setSDKLanguage(const char *locale) {
-    if(locale == NULL || strlen(locale) == 0) {
-        return false;
-    }
-    cocos2d::JniMethodInfo minfo;
-    bool hasMethod = cocos2d::JniHelper::getStaticMethodInfo(minfo,
-                                                             "net/aihelp/chatservice/ElvaChatServiceHelper",
-                                                             "setSDKLanguage",
-                                                             "(Ljava/lang/String;)V");
-    if(hasMethod) {
-        jstring idStr = minfo.env->NewStringUTF(locale);
-        minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID, idStr);
-        minfo.env->DeleteLocalRef(idStr);
-        minfo.env->DeleteLocalRef(minfo.classID);
-    }
-    return true;
+void ECServiceCocos2dx::setSDKLanguage(const char *locale) {
+    if(locale != NULL || strlen(locale) != 0) {
+        cocos2d::JniMethodInfo minfo;
+        bool hasMethod = cocos2d::JniHelper::getStaticMethodInfo(minfo,
+                                                                "net/aihelp/chatservice/ElvaChatServiceHelper",
+                                                                "setSDKLanguage",
+                                                                "(Ljava/lang/String;)V");
+        if(hasMethod) {
+            jstring idStr = minfo.env->NewStringUTF(locale);
+            minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID, idStr);
+            minfo.env->DeleteLocalRef(idStr);
+            minfo.env->DeleteLocalRef(minfo.classID);
+        }
+    }    
 }
 
 void ECServiceCocos2dx::useDevice(){
